@@ -2,7 +2,7 @@
 import React from "react";
 import bgImage from "../assets/pictures/day.png";
 import TimeDisplay from "../components/TimeDisplay";
-import Apps from "../components/Apps";
+import AppsDisplay from "../components/AppsDisplay";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <TimeDisplay />
-      <Apps />
+      <AppsDisplay />
     </div>
   );
 };
