@@ -88,7 +88,14 @@ const appIcons2 = [
 const AppsDisplay = () => {
   return (
     <div
-      className='fixed flex flex-col space-y-6 items-end'
+      className='
+    fixed
+    bottom-4 left-1/2 -translate-x-1/2
+    flex flex-col space-y-6 items-center
+    w-full max-w-md
+    lg:items-end lg:right-[7%] lg:left-auto lg:bottom-[5%] lg:translate-x-0
+    z-10
+  '
       style={{
         bottom: "5%",
         right: "7%",
