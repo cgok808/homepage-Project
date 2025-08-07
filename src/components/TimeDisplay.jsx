@@ -34,16 +34,16 @@ export default function TimeDisplay() {
   )} ${day}, ${year}`; // oh yeah this is it for now
 
   return (
-    <div className='fixed z-10 w-full max-w-md lg:max-w-xl top-[25%] left-1/2 -translate-x-1/2 lg:top-15 lg:left-auto lg:right-[7%] lg:translate-x-0'>
-      <section className='backdrop-blur-lg bg-white/20 border border-white/10 rounded-xl p-6 shadow-lg text-white'>
+    <div className='fixed z-10 w-full max-w-md lg:w-auto lg:max-w-xl top-[25%] left-1/2 -translate-x-1/2 lg:top-15 lg:left-auto lg:right-[7%] lg:translate-x-0'>
+      <section className='backdrop-blur-lg bg-white/20 border border-white/50 rounded-xl p-6 shadow-lg text-white'>
         <div className='text-center lg:text-left'>
-          <h1 className='whitespace-nowrap font-bold mb-4 border-b-2 border-[rgba(255,255,255,0.4)] pb-2 text-4xl md:text-5xl lg:text-6xl'>
+          <h1 className='whitespace-nowrap font-bold mb-2 leading-tight border-b-2 border-[rgba(255,255,255,0.4)] pb-2 text-4xl md:text-5xl lg:text-6xl'>
             {greeting}!
           </h1>
-          <h2 className='mb-2 text-2xl md:text-3xl lg:text-4xl'>
+          <h2 className='mb-1 text-2xl md:text-3xl lg:text-4xl leading-tight'>
             {customDate}
           </h2>
-          <p className='text-xl md:text-2xl lg:text-3xl'>
+          <p className='text-xl md:text-2xl lg:text-3xl leading-tight'>
             It is currently: {time.toLocaleTimeString()}
           </p>
         </div>
