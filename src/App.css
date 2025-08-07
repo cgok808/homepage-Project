@@ -14,13 +14,13 @@
   width: auto;
   height: auto;
   /* 0.05 alpha = 5% opacity */
-  background: rgba(255, 255, 255, 5%);
+  background: rgba(255, 255, 255, 0.05);   /* ✅ Valid */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 20px;
   /* 0.1 alpha = 10% opacity */
-  border: 1px solid rgba(255, 255, 255, 10%);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 15%);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* ✅ Valid */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* ✅ Valid */
   position: relative;
   overflow: hidden;
   transform: translateZ(0);
