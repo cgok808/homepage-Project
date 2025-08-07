@@ -13,12 +13,14 @@
   padding: 1.5rem 2rem;
   width: auto;
   height: auto;
-  background: rgba(255, 255, 255, 0.05); /* very clear (75% transparency) */
+  /* 0.05 alpha = 5% opacity */
+  background: rgba(255, 255, 255, 5%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  /* 0.1 alpha = 10% opacity */
+  border: 1px solid rgba(255, 255, 255, 10%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 15%);
   position: relative;
   overflow: hidden;
   transform: translateZ(0);
@@ -29,7 +31,7 @@
 
 .top-right-position {
   position: fixed;
-  top: 15%;
+  top: 10%;
   right: 7%;
   z-index: 10; /* ensure on top */
 }
