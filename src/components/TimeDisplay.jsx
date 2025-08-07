@@ -33,7 +33,7 @@ export default function TimeDisplay() {
   return (
     <section className='glass-card text-white relative z-10 top-right-position'>
       <div>
-        <h1 className='flex font-bold text-7xl mb-2 border-b-2 border-[rgba(255,255,255,0.4)] pb-2'>
+        <h1 className='flex font-bold text-7xl mb-6 border-b-2 border-[rgba(255,255,255,0.4)] pb-4'>
           {greeting}!
         </h1>
         <h2 className='text-5xl mb-2'>{customDate}</h2>
