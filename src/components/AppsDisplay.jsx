@@ -102,7 +102,7 @@ const AppsDisplay = () => {
         zIndex: 10,
       }}
     >
-      <section className='glass-card apps-position__1'>
+      <section className='backdrop-blur-lg bg-white/10 border border-white/10 rounded-xl p-6 shadow-lg fixed top-10 right-7 z-10 apps-position__1'>
         <ul>
           <li className='z-10 flex space-x-4 text-3xl md:text-4xl lg:text-6xl'>
             {appIcons1.map((app) => (
@@ -113,7 +113,7 @@ const AppsDisplay = () => {
           </li>
         </ul>
       </section>
-      <section className='glass-card apps-position__2'>
+      <section className='backdrop-blur-lg bg-white/10 border border-white/10 rounded-xl p-6 shadow-lg fixed top-10 right-7 z-10 apps-position__2'>
         <ul>
           <li className='z-10 flex space-x-4 text-3xl md:text-4xl lg:text-6xl'>
             {appIcons2.map((app) => (

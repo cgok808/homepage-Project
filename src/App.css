@@ -8,27 +8,6 @@
   transition: all 300ms ease;
 }
 
-.glass-card {
-  display: inline-block;
-  padding: 1.5rem 2rem;
-  width: auto;
-  height: auto;
-  /* 0.05 alpha = 5% opacity */
-  background: rgba(255, 255, 255, 0.05);   /* ✅ Valid */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  /* 0.1 alpha = 10% opacity */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* ✅ Valid */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* ✅ Valid */
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform, opacity;
-  transition: all 300ms ease;
-}
-
 .top-right-position {
   position: fixed;
   top: 10%;
@@ -48,3 +27,7 @@
     padding: 1rem;
   }
 }
+
+/* GLASS CARD
+backdrop-blur-lg bg-white/20 border border-white/10 rounded-xl p-6 shadow-lg fixed top-10 right-7 z-10
+*/

@@ -28,10 +28,13 @@ export default function TimeDisplay() {
   const day = time.getDate(); // returns number
   const year = time.getFullYear();
 
-  const customDate = `${weekday.slice(0,3)} • ${month.slice(0, 3)} ${day}, ${year}`; // oh yeah this is it for now
+  const customDate = `${weekday.slice(0, 3)} • ${month.slice(
+    0,
+    3
+  )} ${day}, ${year}`; // oh yeah this is it for now
 
   return (
-    <section className='glass-card text-white relative z-10 top-right-position'>
+    <section className='backdrop-blur-lg bg-white/10 border border-white/10 rounded-xl p-6 shadow-lg top-10 right-7 text-white relative z-10 top-right-position'>
       <div>
         <h1 className='flex font-bold text-7xl mb-6 border-b-2 border-[rgba(255,255,255,0.4)] pb-4'>
           {greeting}!
