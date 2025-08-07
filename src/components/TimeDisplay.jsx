@@ -28,7 +28,7 @@ export default function TimeDisplay() {
   const day = time.getDate(); // returns number
   const year = time.getFullYear();
 
-  const customDate = `${weekday} • ${month.slice(0, 3)} ${day}, ${year}`; // oh yeah this is it for now
+  const customDate = `${weekday.slice(0,3)} • ${month.slice(0, 3)} ${day}, ${year}`; // oh yeah this is it for now
 
   return (
     <section className='glass-card text-white relative z-10 top-right-position'>

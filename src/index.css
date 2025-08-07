@@ -9,7 +9,8 @@
 }
 
 .glass-card {
-  padding: 20px;
+  display: inline-block; /* Makes the card only as wide as its content */
+  padding: 1.5rem 2rem;
   width: auto;
   height: auto;
   background: rgba(255, 255, 255, 0.1);
@@ -62,9 +63,9 @@
   z-index: 10; /* ensure on top */
 }
 
-.apps-position {
-  position: fixed;
-  top: 55%;
-  right: 7%;
+.apps-position__1,
+.apps-position__2 {
+  position: static;
+  top: auto;
+  right: auto;
 }
-
