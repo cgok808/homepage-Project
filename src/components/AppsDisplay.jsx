@@ -3,13 +3,33 @@ import { PiSpotifyLogoBold } from "react-icons/pi";
 import { PiSteamLogo } from "react-icons/pi";
 import { PiGithubLogo } from "react-icons/pi";
 import { PiRedditLogo } from "react-icons/pi";
-import { PiYoutubeLogo } from "react-icons/pi";
 import { PiGoogleDriveLogo } from "react-icons/pi";
+import { PiYoutubeLogo } from "react-icons/pi";
 
 const AppsDisplay = () => {
   return (
     <section className='glass-card apps-position'>
       <ul className='z-10 flex text-7xl space-x-4'>
+        <li>
+          <a
+            href='https://youtube.com/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='hover:opacity-75'
+          >
+            <PiYoutubeLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
+          </a>
+        </li>
+        <li>
+          <a
+            href='https://reddit.com'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='hover:opacity-75'
+          >
+            <PiRedditLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
+          </a>
+        </li>
         <li>
           <a
             href='https://spotify.com'
@@ -22,7 +42,7 @@ const AppsDisplay = () => {
         </li>
         <li>
           <a
-            href='https://steam.com'
+            href='https://store.steampowered.com/'
             target='_blank'
             rel='noopener noreferrer'
             className='hover:opacity-75'
@@ -38,16 +58,6 @@ const AppsDisplay = () => {
             className='hover:opacity-75'
           >
             <PiGithubLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-          </a>
-        </li>
-        <li>
-          <a
-            href='https://reddit.com'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='hover:opacity-75'
-          >
-            <PiRedditLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
           </a>
         </li>
         <li>
