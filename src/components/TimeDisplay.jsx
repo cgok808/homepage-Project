@@ -21,11 +21,23 @@ export default function TimeDisplay() {
     greeting = "Good evening";
   }
 
+  //Setting up this manually so can expand for the user to customize? Possibly in future?
+
+  const weekday = time.toLocaleDateString(undefined, { weekday: "long" });
+  const month = time.toLocaleDateString(undefined, { month: "long" });
+  const day = time.getDate(); // returns number
+  const year = time.getFullYear();
+
+  const customDate = `${weekday} • ${month.slice(0, 3)} ${day}, ${year}`; // oh yeah this is it for now
+
   return (
     <section className='glass-card text-white relative z-10 top-right-position'>
       <div>
-        <h1 className='flex font-bold text-7xl mb-2'>{greeting}!</h1>
-        <p className="text-4xl">It is currently: {time.toLocaleTimeString()}</p>
+        <h1 className='flex font-bold text-7xl mb-2 border-b-2 border-[rgba(255,255,255,0.4)] pb-2'>
+          {greeting}!
+        </h1>
+        <h2 className='text-5xl mb-2'>{customDate}</h2>
+        <p className='text-3xl'>It is currently: {time.toLocaleTimeString()}</p>
       </div>
     </section>
   );
