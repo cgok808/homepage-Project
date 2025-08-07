@@ -92,7 +92,7 @@ const AppsDisplay = () => {
       '
     >
       <section className='backdrop-blur-lg bg-white/5 border border-white/25 rounded-xl p-6 shadow-lg fixed top-10 right-7 z-10 apps-position__1'>
-        <ul className='z-10 flex space-x-4 text-3xl md:text-4xl lg:text-6xl'>
+        <ul className='z-10 flex space-x-4 text-3xl md:text-4xl lg:text-6xl text-white'>
           {appIcons1.map((app) => (
             <AppIcon key={app.id} href={app.href} label={app.label}>
               {app.icon}
@@ -102,7 +102,7 @@ const AppsDisplay = () => {
       </section>
 
       <section className='backdrop-blur-lg bg-white/5 border border-white/25 rounded-xl p-6 shadow-lg fixed top-10 right-7 z-10 apps-position__2'>
-        <ul className='z-10 flex space-x-4 text-3xl md:text-4xl lg:text-6xl'>
+        <ul className='z-10 flex space-x-4 text-3xl md:text-4xl lg:text-6xl text-white'>
           {appIcons2.map((app) => (
             <AppIcon key={app.id} href={app.href} label={app.label}>
               {app.icon}

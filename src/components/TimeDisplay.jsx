@@ -35,9 +35,9 @@ export default function TimeDisplay() {
 
   return (
     <div className='fixed z-10 w-full max-w-md lg:w-auto lg:max-w-xl top-[25%] left-1/2 -translate-x-1/2 lg:top-15 lg:left-auto lg:right-[7%] lg:translate-x-0'>
-      <section className='backdrop-blur-lg bg-white/20 border border-white/50 rounded-xl p-6 shadow-lg text-white'>
+      <section className='backdrop-blur-lg bg-white/10 border border-white/40 rounded-xl p-6 shadow-lg'>
         <div className='text-center lg:text-left'>
-          <h1 className='whitespace-nowrap font-bold mb-2 leading-tight border-b-2 border-[rgba(255,255,255,0.4)] pb-2 text-4xl md:text-5xl lg:text-6xl'>
+          <h1 className='whitespace-nowrap font-bold mb-2 leading-tight border-b-2 border-black pb-2 text-4xl md:text-5xl lg:text-6xl'>
             {greeting}!
           </h1>
           <h2 className='mb-1 text-2xl md:text-3xl lg:text-4xl leading-tight'>
