@@ -34,14 +34,20 @@ export default function TimeDisplay() {
   )} ${day}, ${year}`; // oh yeah this is it for now
 
   return (
-    <section className='backdrop-blur-lg bg-white/10 border border-white/10 rounded-xl p-6 shadow-lg top-10 right-7 text-white relative z-10 top-right-position'>
-      <div>
-        <h1 className='flex font-bold text-7xl mb-6 border-b-2 border-[rgba(255,255,255,0.4)] pb-4'>
-          {greeting}!
-        </h1>
-        <h2 className='text-5xl mb-2'>{customDate}</h2>
-        <p className='text-3xl'>It is currently: {time.toLocaleTimeString()}</p>
-      </div>
-    </section>
+    <div className='fixed z-10 w-full max-w-md lg:max-w-xl top-[25%] left-1/2 -translate-x-1/2 lg:top-15 lg:left-auto lg:right-[7%] lg:translate-x-0'>
+      <section className='backdrop-blur-lg bg-white/20 border border-white/10 rounded-xl p-6 shadow-lg text-white'>
+        <div className='text-center lg:text-left'>
+          <h1 className='whitespace-nowrap font-bold mb-4 border-b-2 border-[rgba(255,255,255,0.4)] pb-2 text-4xl md:text-5xl lg:text-6xl'>
+            {greeting}!
+          </h1>
+          <h2 className='mb-2 text-2xl md:text-3xl lg:text-4xl'>
+            {customDate}
+          </h2>
+          <p className='text-xl md:text-2xl lg:text-3xl'>
+            It is currently: {time.toLocaleTimeString()}
+          </p>
+        </div>
+      </section>
+    </div>
   );
 }
