@@ -27,42 +27,79 @@ const ToDoList = () => {
   };
 
   return (
-    <GlassCard className='z-40 max-w-md w-full p-4'>
-      <h2 className='text-xl mb-4 font-semibold'>To-Do List</h2>
-      <div className='flex mb-4'>
+    <GlassCard className='z-40 max-w-md w-full p-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg'>
+      <h2 className='text-2xl mb-6 font-semibold text-white tracking-wide'>
+        To-Do List
+      </h2>
+
+      <div className='flex gap-3 mb-6'>
         <input
           type='text'
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className='flex-grow p-2 rounded border border-white/20 focus:outline-none'
-          placeholder='Add new task...'
           onKeyDown={(e) => e.key === "Enter" && addTask()}
+          aria-label='New task'
+          placeholder='Add new task...'
+          className='
+            flex-grow p-3 rounded-lg border border-white/30
+            bg-white/10 text-white placeholder-white/60
+           
+            transition-colors duration-300 ease-in-out
+          '
         />
         <button
           onClick={addTask}
-          className='ml-2 bg-white/30 hover:bg-white/50 text-white px-4 rounded'
+          aria-label='Add task'
+          className='
+            px-6 py-3 bg-white/30 hover:bg-white/50
+            rounded-lg text-white font-semibold
+            transition-colors duration-300 ease-in-out
+          '
         >
           Add
         </button>
       </div>
-      <ul className='text-white max-h-48 overflow-auto'>
-        {tasks.length === 0 && <li className='opacity-50'>No tasks yet</li>}
+
+      <ul className='text-white max-h-56 overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-600 scrollbar-track-transparent'>
+        {tasks.length === 0 && (
+          <li className='opacity-60 italic text-center select-none'>
+            No tasks yet
+          </li>
+        )}
         {tasks.map((task) => (
-          <li key={task.id} className='flex justify-between items-center mb-2'>
-            <label className='flex items-center space-x-2 cursor-pointer'>
+          <li
+            key={task.id}
+            className='flex justify-between items-center mb-3 last:mb-0'
+          >
+            <label className='flex items-center space-x-3 cursor-pointer select-none'>
               <input
                 type='checkbox'
                 checked={task.done}
                 onChange={() => toggleDone(task.id)}
+                className='
+                  w-5 h-5 rounded-md border-2 border-white/50
+                  transition-colors duration-300 ease-in-out
+                '
               />
-              <span className={task.done ? "line-through opacity-50" : ""}>
+              <span
+                className={`text-lg ${
+                  task.done ? "line-through text-white/60" : "text-white"
+                }`}
+              >
                 {task.text}
               </span>
             </label>
             <button
               onClick={() => deleteTask(task.id)}
-              className='text-red-400 hover:text-red-600 font-bold transition-colors'
-              aria-label='Delete task'
+              aria-label={`Delete task: ${task.text}`}
+              title='Delete task'
+              className='
+                flex items-center justify-center
+                text-red-400 hover:text-red-600
+                font-bold text-xl
+                transition-colors duration-300 ease-in-out
+                select-none
+              '
             >
               &times;
             </button>
