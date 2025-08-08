@@ -1,3 +1,4 @@
+// components/AppsDisplay.jsx
 import React from "react";
 import {
   PiSpotifyLogoBold,
@@ -8,109 +9,94 @@ import {
   PiYoutubeLogo,
   PiMailbox,
 } from "react-icons/pi";
+import { GlassCard } from "./GlassCard";
 
-const AppIcon = ({ href, children, label }) => (
+const AppIcon = ({ href, label, Icon }) => (
   <li>
     <a
       href={href}
       target='_blank'
       rel='noopener noreferrer'
-      className='hover:opacity-75'
+      className='hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-white rounded'
       aria-label={label}
     >
-      {children}
+      <Icon className='transform scale-90 transition-transform duration-300 hover:scale-110' />
     </a>
   </li>
 );
 
-const appIcons1 = [
+const appIcons = [
   {
     id: 1,
     href: "https://youtube.com/",
     label: "YouTube",
-    icon: (
-      <PiYoutubeLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-    ),
+    Icon: PiYoutubeLogo,
+    group: 1,
   },
   {
     id: 2,
     href: "https://reddit.com",
     label: "Reddit",
-    icon: (
-      <PiRedditLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-    ),
+    Icon: PiRedditLogo,
+    group: 1,
   },
   {
     id: 3,
     href: "https://spotify.com",
     label: "Spotify",
-    icon: (
-      <PiSpotifyLogoBold className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-    ),
+    Icon: PiSpotifyLogoBold,
+    group: 1,
   },
   {
     id: 4,
     href: "https://store.steampowered.com/",
     label: "Steam",
-    icon: (
-      <PiSteamLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-    ),
+    Icon: PiSteamLogo,
+    group: 1,
   },
-];
-
-const appIcons2 = [
   {
     id: 5,
     href: "https://github.com",
     label: "GitHub",
-    icon: (
-      <PiGithubLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-    ),
+    Icon: PiGithubLogo,
+    group: 2,
   },
   {
     id: 6,
     href: "https://drive.google.com/",
     label: "Google Drive",
-    icon: (
-      <PiGoogleDriveLogo className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-    ),
+    Icon: PiGoogleDriveLogo,
+    group: 2,
   },
   {
     id: 7,
     href: "https://mail.google.com",
     label: "Gmail",
-    icon: (
-      <PiMailbox className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-    ),
+    Icon: PiMailbox,
+    group: 2,
   },
 ];
 
 const AppsDisplay = () => {
   return (
-    <div
-      className='fixed bottom-4 left-1/2 -translate-x-1/2 flex flex-col space-y-6 items-center w-full max-w-md lg:items-end lg:right-[7%] lg:left-auto lg:bottom-[5%] lg:translate-x-0 z-10
-      '
-    >
-      <section className='backdrop-blur-lg bg-white/5 border border-white/25 rounded-xl p-6 shadow-lg fixed top-10 right-7 z-10 apps-position__1'>
-        <ul className='z-10 flex space-x-4 text-3xl md:text-4xl lg:text-6xl text-white'>
-          {appIcons1.map((app) => (
-            <AppIcon key={app.id} href={app.href} label={app.label}>
-              {app.icon}
-            </AppIcon>
-          ))}
-        </ul>
-      </section>
-
-      <section className='backdrop-blur-lg bg-white/5 border border-white/25 rounded-xl p-6 shadow-lg fixed top-10 right-7 z-10 apps-position__2'>
-        <ul className='z-10 flex space-x-4 text-3xl md:text-4xl lg:text-6xl text-white'>
-          {appIcons2.map((app) => (
-            <AppIcon key={app.id} href={app.href} label={app.label}>
-              {app.icon}
-            </AppIcon>
-          ))}
-        </ul>
-      </section>
-    </div>
+    <>
+      {[1, 2].map((groupId) => (
+        <GlassCard
+          key={groupId}
+          className={`fixed left-1/2 -translate-x-1/2 lg:left-auto lg:right-[7%] lg:translate-x-0 z-40 ${
+            groupId === 1 ? "lg:bottom-45 bottom-40" : "bottom-10"
+          }`}
+        >
+          <ul className='flex space-x-4 text-2xl md:text-4xl lg:text-6xl text-white'>
+            {appIcons
+              .filter((app) => app.group === groupId)
+              .map((app) => (
+                <AppIcon key={app.id} {...app} />
+              ))}
+          </ul>
+        </GlassCard>
+      ))}
+    </>
   );
 };
 

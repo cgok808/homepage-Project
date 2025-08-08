@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { GlassCard } from "./GlassCard";
 
-export default function TimeDisplay() {
+const TimeDisplay = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -34,20 +35,21 @@ export default function TimeDisplay() {
   )} ${day}, ${year}`; // oh yeah this is it for now
 
   return (
-    <div className='fixed z-10 w-full max-w-md lg:w-auto lg:max-w-xl top-[25%] left-1/2 -translate-x-1/2 lg:top-15 lg:left-auto lg:right-[7%] lg:translate-x-0'>
-      <section className='backdrop-blur-lg bg-white/5 border border-white/25 rounded-xl p-6 shadow-lg'>
-        <div className='text-center lg:text-left'>
-          <h1 className='whitespace-nowrap font-bold mb-2 leading-tight border-b-2 border-black pb-2 text-4xl md:text-5xl lg:text-6xl'>
-            {greeting}!
-          </h1>
-          <h2 className='mb-1 text-2xl md:text-3xl lg:text-4xl leading-tight'>
-            {customDate}
-          </h2>
-          <p className='text-xl md:text-2xl lg:text-3xl leading-tight'>
-            It is currently: {time.toLocaleTimeString()}
-          </p>
-        </div>
-      </section>
-    </div>
+    <GlassCard className='fixed left-1/2 -translate-x-1/2 lg:left-auto lg:right-[7%] lg:translate-x-0 top-24 z-40 border-white/40'>
+      <div className='text-center lg:text-left'>
+        <h1 className='whitespace-nowrap font-bold mb-2 leading-tight border-b-2 border-black pb-2 text-3xl md:text-4xl lg:text-5xl'>
+          {greeting}!
+        </h1>
+        <h2 className='mb-1 text-lg md:text-xl lg:text-2xl leading-tight'>
+          {customDate}
+        </h2>
+        <p className='text-base md:text-lg lg:text-xl leading-tight'>
+          It is currently:{" "}
+          <time dateTime={time.toISOString()}>{time.toLocaleTimeString()}</time>
+        </p>
+      </div>
+    </GlassCard>
   );
-}
+};
+
+export default TimeDisplay;

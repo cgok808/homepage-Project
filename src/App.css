@@ -8,26 +8,26 @@
   transition: all 300ms ease;
 }
 
-.top-right-position {
-  position: fixed;
-  top: 10%;
-  right: 7%;
-  z-index: 10; /* ensure on top */
-}
-
-.apps-position__1,
-.apps-position__2 {
-  position: static;
-  top: auto;
-  right: auto;
-}
-
 @media (max-width: 640px) {
   .glass-card {
     padding: 1rem;
   }
 }
 
+
+
 /* GLASS CARD
 backdrop-blur-lg bg-white/20 border border-white/10 rounded-xl p-6 shadow-lg fixed top-10 right-7 z-10
+.glass-card {
+  backdrop-filter: blur(20px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
 */
