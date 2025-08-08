@@ -8,16 +8,20 @@ import AppsDisplay from "../components/AppsDisplay";
 const Home = () => {
   return (
     <Wallpaper>
-      <div className='flex justify-between h-screen p-4'>
-        {/* Left side - ToDoList (vertically centered) */}
-        <div className='flex items-center mx-30'>
+      <div className='flex flex-col md:flex-row md:justify-around h-screen p-4'>
+        {/* Left side - ToDoList (centered vertically on desktop, top on mobile) */}
+        <div className='flex justify-center md:items-center md:h-full mb-8 md:mb-0'>
           <ToDoList />
         </div>
 
-        {/* Right side - TimeDisplay top, AppsDisplay bottom */}
-        <div className='flex flex-col justify-between mx-40 my-30'>
-          <TimeDisplay />
-          <AppsDisplay />
+        {/* Right side - vertical stack with proper alignment */}
+        <div className='flex flex-col justify-center items-center gap-8'>
+          <div className='my-4 md:my-8'>
+            <TimeDisplay />
+          </div>
+          <div className='my-4 md:my-8'>
+            <AppsDisplay />
+          </div>
         </div>
       </div>
     </Wallpaper>

@@ -76,16 +76,17 @@ const appIcons = [
 
 const AppsDisplay = () => {
   return (
-    <div className='flex flex-col items-end gap-4 w-full'>
-      {" "}
-      {/* Right-aligns the cards */}
+    <div className='flex flex-col gap-8 p-4 items-center lg:items-end'>
       {[1, 2].map((groupId) => (
-        <GlassCard key={groupId}>
-          <ul className='flex flex-row justify-end gap-4 text-2xl md:text-4xl lg:text-6xl text-white'>
+        <GlassCard
+          key={groupId}
+          className='p-4 inline-flex max-w-max' 
+        >
+          <ul className='flex items-center gap-4 text-2xl md:text-4xl lg:text-6xl text-white'>
             {appIcons
               .filter((app) => app.group === groupId)
               .map((app) => (
-                <li key={app.id}>
+                <li key={app.id} className='p-2'>
                   <AppIcon {...app} />
                 </li>
               ))}
