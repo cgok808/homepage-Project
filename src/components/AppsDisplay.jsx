@@ -1,4 +1,3 @@
-// components/AppsDisplay.jsx
 import React from "react";
 import {
   PiSpotifyLogoBold,
@@ -12,17 +11,15 @@ import {
 import { GlassCard } from "./GlassCard";
 
 const AppIcon = ({ href, label, Icon }) => (
-  <li>
-    <a
-      href={href}
-      target='_blank'
-      rel='noopener noreferrer'
-      className='hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-white rounded'
-      aria-label={label}
-    >
-      <Icon className='transform scale-90 transition-transform duration-300 hover:scale-110' />
-    </a>
-  </li>
+  <a
+    href={href}
+    target='_blank'
+    rel='noopener noreferrer'
+    className='hover:opacity-75 focus:outline-none rounded'
+    aria-label={label}
+  >
+    <Icon className='transform scale-90 transition-transform duration-300 hover:scale-110' />
+  </a>
 );
 
 const appIcons = [
@@ -79,24 +76,23 @@ const appIcons = [
 
 const AppsDisplay = () => {
   return (
-    <>
+    <div className='flex flex-col items-end gap-4 w-full'>
+      {" "}
+      {/* Right-aligns the cards */}
       {[1, 2].map((groupId) => (
-        <GlassCard
-          key={groupId}
-          className={`fixed left-1/2 -translate-x-1/2 lg:left-auto lg:right-[7%] lg:translate-x-0 z-40 ${
-            groupId === 1 ? "lg:bottom-70 bottom-60" : "lg:bottom-35 bottom-30"
-          }`}
-        >
-          <ul className='flex space-x-4 text-2xl md:text-4xl lg:text-6xl text-white'>
+        <GlassCard key={groupId}>
+          <ul className='flex flex-row justify-end gap-4 text-2xl md:text-4xl lg:text-6xl text-white'>
             {appIcons
               .filter((app) => app.group === groupId)
               .map((app) => (
-                <AppIcon key={app.id} {...app} />
+                <li key={app.id}>
+                  <AppIcon {...app} />
+                </li>
               ))}
           </ul>
         </GlassCard>
       ))}
-    </>
+    </div>
   );
 };
 

@@ -12,7 +12,7 @@ const getImageForHour = (hour) => {
 };
 
 // Change this to customize the update frequency (e.g., 1000 = 1 second, 60000 = 1 minute)
-const UPDATE_INTERVAL_MS = 300000; // Change here
+const UPDATE_INTERVAL_MS = 1000; // Change here
 
 const Wallpaper = ({ children }) => {
   const [bgImage, setBgImage] = useState(

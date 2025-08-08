@@ -35,20 +35,20 @@ const TimeDisplay = () => {
   )} ${day}, ${year}`; // oh yeah this is it for now
 
   return (
-    <GlassCard className='fixed left-1/2 -translate-x-1/2 lg:left-auto lg:right-[7%] lg:translate-x-0 top-24 z-40 border-white/40'>
-      <div className='text-center lg:text-left'>
-        <h1 className='whitespace-nowrap font-bold mb-2 leading-tight border-b-2 border-black pb-2 text-3xl md:text-4xl lg:text-5xl'>
-          {greeting}!
-        </h1>
-        <h2 className='mb-1 text-lg md:text-xl lg:text-2xl leading-tight'>
-          {customDate}
-        </h2>
-        <p className='text-base md:text-lg lg:text-xl leading-tight'>
-          It is currently:{" "}
-          <time dateTime={time.toISOString()}>{time.toLocaleTimeString()}</time>
-        </p>
-      </div>
-    </GlassCard>
+   <GlassCard className="border-white/40 w-fit max-w-lg">
+    <div className='text-center lg:text-left'>
+      <h1 className='font-bold mb-2 leading-tight border-b-2 pb-2 text-3xl md:text-4xl lg:text-5xl'>
+        {greeting}!
+      </h1>
+      <h2 className='mb-1 text-lg md:text-xl lg:text-2xl leading-tight'>
+        {customDate}
+      </h2>
+      <p className='text-base md:text-lg lg:text-xl leading-tight'>
+        It is currently:{" "}
+        <time dateTime={time.toISOString()}>{time.toLocaleTimeString()}</time>
+      </p>
+    </div>
+  </GlassCard>
   );
 };
 
