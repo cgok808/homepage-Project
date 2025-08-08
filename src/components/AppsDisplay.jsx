@@ -84,7 +84,7 @@ const AppsDisplay = () => {
         <GlassCard
           key={groupId}
           className={`fixed left-1/2 -translate-x-1/2 lg:left-auto lg:right-[7%] lg:translate-x-0 z-40 ${
-            groupId === 1 ? "lg:bottom-45 bottom-40" : "bottom-10"
+            groupId === 1 ? "lg:bottom-55 bottom-50" : "bottom-20"
           }`}
         >
           <ul className='flex space-x-4 text-2xl md:text-4xl lg:text-6xl text-white'>
