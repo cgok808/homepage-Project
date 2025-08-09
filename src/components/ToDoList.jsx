@@ -39,14 +39,16 @@ const ToDoList = () => {
   };
 
   const saveEdit = (id) => {
-    if (!editText.trim()) return; // prevent empty task text
+    if (!editText.trim()) {
+      deleteTask(id);
+      return;
+    }
     setTasks(
       tasks.map((t) => (t.id === id ? { ...t, text: editText.trim() } : t))
     );
     cancelEditing();
   };
 
-  // Handle key events in edit input
   const handleEditKeyDown = (e, id) => {
     if (e.key === "Enter") {
       saveEdit(id);
@@ -55,7 +57,6 @@ const ToDoList = () => {
     }
   };
 
-  // To auto-focus edit input
   const editInputRef = useRef(null);
   useEffect(() => {
     if (editingId !== null) {
@@ -116,7 +117,6 @@ const ToDoList = () => {
                   type='text'
                   value={editText}
                   onChange={(e) => setEditText(e.target.value)}
-                  onBlur={() => saveEdit(task.id)}
                   onKeyDown={(e) => handleEditKeyDown(e, task.id)}
                   className='focus:outline-none flex-grow min-w-0 p-1 rounded-md border border-white/40 bg-white/20 text-white placeholder-white/60 text-sm sm:text-base'
                   aria-label='Edit task'
@@ -132,7 +132,6 @@ const ToDoList = () => {
               )}
             </label>
 
-            {/* Edit and Delete buttons */}
             <div className='flex space-x-2 ml-3 flex-shrink-0 mr-1.5'>
               {editingId === task.id ? (
                 <button
