@@ -27,12 +27,12 @@ const ToDoList = () => {
   };
 
   return (
-    <GlassCard className='z-40 max-w-md w-full p-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg'>
-      <h2 className='text-2xl mb-6 font-semibold text-white tracking-wide'>
+    <GlassCard className='z-40 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg min-w-0'>
+      <h2 className='text-xl sm:text-2xl mb-6 font-semibold text-white tracking-wide'>
         To-Do List
       </h2>
 
-      <div className='flex gap-3 mb-6'>
+      <div className='flex flex-col sm:flex-row gap-3 mb-6'>
         <input
           type='text'
           value={input}
@@ -41,18 +41,19 @@ const ToDoList = () => {
           aria-label='New task'
           placeholder='Add new task...'
           className='
-            flex-grow p-3 rounded-lg border border-white/30
+            flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30
             bg-white/10 text-white placeholder-white/60
-           
             transition-colors duration-300 ease-in-out
+            text-sm sm:text-base
           '
         />
         <button
           onClick={addTask}
           aria-label='Add task'
           className='
-            px-6 py-3 bg-white/30 hover:bg-white/50
+            w-full sm:w-auto px-5 py-2 sm:py-3 bg-white/30 hover:bg-white/50
             rounded-lg text-white font-semibold
+            text-sm sm:text-base
             transition-colors duration-300 ease-in-out
           '
         >
@@ -60,9 +61,9 @@ const ToDoList = () => {
         </button>
       </div>
 
-      <ul className='text-white max-h-56 overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-600 scrollbar-track-transparent'>
+      <ul className='text-white max-h-48 sm:max-h-56 overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-600 scrollbar-track-transparent'>
         {tasks.length === 0 && (
-          <li className='opacity-60 italic text-center select-none'>
+          <li className='opacity-60 italic text-center select-none text-sm sm:text-base'>
             No tasks yet
           </li>
         )}
@@ -77,12 +78,12 @@ const ToDoList = () => {
                 checked={task.done}
                 onChange={() => toggleDone(task.id)}
                 className='
-                  w-5 h-5 rounded-md border-2 border-white/50
+                  w-4 h-4 sm:w-5 sm:h-5 rounded-md border-2 border-white/50
                   transition-colors duration-300 ease-in-out
                 '
               />
               <span
-                className={`text-lg ${
+                className={`text-sm sm:text-lg ${
                   task.done ? "line-through text-white/60" : "text-white"
                 }`}
               >
