@@ -67,7 +67,7 @@ const ToDoList = () => {
   return (
     <GlassCard className='z-40 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg min-w-0'>
       <h2 className='text-xl text-black/60 sm:text-2xl mb-6 font-bold border-white/30 border-b-2 pb-2 tracking-wide'>
-        To-Do List
+        you remember?
       </h2>
 
       <div className='flex flex-col sm:flex-row gap-3 mb-6'>
