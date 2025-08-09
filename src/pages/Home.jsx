@@ -16,8 +16,8 @@ const Home = () => {
         </div>
 
         {/* Right side - vertical stack with proper alignment */}
-        <div className='flex flex-col justify-center items-center gap-8 min-w-0'>
-          <div className='py-4 md:py-8 flex items-center justify-around gap-8'>
+        <div className='flex flex-col justify-center items-center min-w-0'>
+          <div className='lg:py-5 py-4 flex items-center justify-around gap-8'>
             <WeatherDisplay className='md:w-auto w-48' />
             <div className='md:w-auto w-48 flex justify-center'>
               <TimeDisplay />
