@@ -35,7 +35,7 @@ const WeatherDisplay = ({ location = "auto:ip" }) => {
   return (
     <GlassCard className='text-black/70 max-w-xs'>
       <div className='text-center mb-4'>
-        <h3 className='text-lg font-semibold mb-2'>{weather.location.name}</h3>
+        <h3 className='text-lg font-semibold mb-2 pb-2 border-white/30 border-b-2'>{weather.location.name}</h3>
         <img
           src={`https:${current.condition.icon}`}
           alt={current.condition.text}
