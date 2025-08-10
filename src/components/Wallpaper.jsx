@@ -52,13 +52,20 @@ const Wallpaper = ({ children }) => {
 
   return (
     <div
-      className={`min-h-screen bg-cover bg-center transition-opacity duration-1000 ease-in-out`}
+      className={`bg-cover bg-center transition-opacity duration-1000 ease-in-out`}
       style={{
         backgroundImage: `url(${bgImage})`,
         opacity: fade ? 1 : 0,
+        // Add these styles:
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflowY: "auto", // Allows scrolling if content exceeds viewport
       }}
     >
-      {children}
+      <div className='relative min-h-full w-full'>{children}</div>
     </div>
   );
 };

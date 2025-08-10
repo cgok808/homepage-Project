@@ -82,7 +82,7 @@ const AppsDisplay = () => {
           key={groupId}
           className="p-4 inline-flex max-w-max transform-gpu will-change-transform"
         >
-          <ul className="flex items-center gap-4 text-2xl md:text-4xl lg:text-6xl text-white">
+          <ul className="flex items-center gap-4 text-3xl md:text-4xl lg:text-6xl text-white">
             {appIcons
               .filter((app) => app.group === groupId)
               .map((app) => (
