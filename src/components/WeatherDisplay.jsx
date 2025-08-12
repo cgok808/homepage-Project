@@ -11,8 +11,11 @@ const WeatherDisplay = ({ location = "auto:ip" }) => {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://api.weatherapi.com/v1/forecast.json?key=84bc7a5bd1f24dfd924130528250908&q=${location}&days=1`
+          `https://api.weatherapi.com/v1/forecast.json?key=${
+            import.meta.env.VITE_WEATHER_API_KEY
+          }&q=${location}&days=1`
         );
+
         if (!res.ok) throw new Error("Failed to fetch weather");
         const data = await res.json();
         setWeather(data);
@@ -35,7 +38,9 @@ const WeatherDisplay = ({ location = "auto:ip" }) => {
   return (
     <GlassCard className='text-black/70 max-w-xs'>
       <div className='text-center mb-4'>
-        <h3 className='text-lg font-semibold mb-2 pb-2 border-white/30 border-b-2'>{weather.location.name}</h3>
+        <h3 className='text-lg font-semibold mb-2 pb-2 border-white/30 border-b-2'>
+          {weather.location.name}
+        </h3>
         <img
           src={`https:${current.condition.icon}`}
           alt={current.condition.text}
