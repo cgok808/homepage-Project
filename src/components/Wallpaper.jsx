@@ -11,58 +11,51 @@ const getImageForHour = (hour) => {
   return bgNight;
 };
 
-// Change this to customize the update frequency (e.g., 1000 = 1 second, 60000 = 1 minute)
-const UPDATE_INTERVAL_MS = 1000; // Change here
+// Update frequency (e.g., 60000 = 1 minute)
+const UPDATE_INTERVAL_MS = 60000;
 
 const Wallpaper = ({ children }) => {
   const [bgImage, setBgImage] = useState(
     getImageForHour(new Date().getHours())
   );
-  const [fade, setFade] = useState(false);
-  const firstLoad = useRef(true);
+  const [fade, setFade] = useState(true);
+  const currentBgRef = useRef(bgImage);
 
-  const updateBackground = () => {
-    const currentHour = new Date().getHours();
-    const newBg = getImageForHour(currentHour);
-    setBgImage((prev) => {
-      if (prev !== newBg) {
-        setFade(false); // Start fade out
-        setTimeout(() => setFade(true), 50); // Trigger fade in after short delay
-        return newBg;
+  useEffect(() => {
+    const updateBackground = () => {
+      const currentHour = new Date().getHours();
+      const newBg = getImageForHour(currentHour);
+      if (currentBgRef.current !== newBg) {
+        // Start fade out
+        setFade(false);
+
+        // After fade out duration, change image and fade in
+        setTimeout(() => {
+          setBgImage(newBg);
+          currentBgRef.current = newBg;
+          setFade(true);
+        }, 1000); // matches transition-opacity duration (1000ms)
       }
-      return prev;
-    });
-  };
+    };
 
-  useEffect(() => {
-    updateBackground(); // Run once on mount
+    updateBackground(); // run once on mount
 
-    if (UPDATE_INTERVAL_MS) {
-      const interval = setInterval(updateBackground, UPDATE_INTERVAL_MS);
-      return () => clearInterval(interval);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (firstLoad.current) {
-      firstLoad.current = false;
-      setFade(true); // Don't fade on initial load
-    }
+    const interval = setInterval(updateBackground, UPDATE_INTERVAL_MS);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div
-      className={`bg-cover bg-center transition-opacity duration-1000 ease-in-out`}
+      className='bg-cover bg-center transition-opacity duration-1000 ease-in-out'
       style={{
         backgroundImage: `url(${bgImage})`,
         opacity: fade ? 1 : 0,
-        // Add these styles:
         position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        overflowY: "auto", // Allows scrolling if content exceeds viewport
+        overflowY: "auto",
       }}
     >
       <div className='relative min-h-full w-full'>{children}</div>
