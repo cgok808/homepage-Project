@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import bgMorning from "../assets/pictures/morning.jpeg";
-import bgDay from "../assets/pictures/day.jpeg";
-import bgEvening from "../assets/pictures/evening.jpeg";
-import bgNight from "../assets/pictures/night.jpeg";
+import bgMorning from "../assets/pictures/morning.webp";
+import bgDay from "../assets/pictures/day.webp";
+import bgEvening from "../assets/pictures/evening.webp";
+import bgNight from "../assets/pictures/night.webp";
 
 const getImageForHour = (hour) => {
   if (hour >= 5 && hour < 11) return bgMorning;
