@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import bgMorning from "../assets/pictures/morning.webp";
 import bgDay from "../assets/pictures/day.webp";
 import bgEvening from "../assets/pictures/evening.webp";
@@ -11,34 +11,21 @@ const getImageForHour = (hour) => {
   return bgNight;
 };
 
-// Update frequency (e.g., 60000 = 1 minute)
-const UPDATE_INTERVAL_MS = 60000;
+const UPDATE_INTERVAL_MS = 1000;
 
 const Wallpaper = ({ children }) => {
   const [bgImage, setBgImage] = useState(
     getImageForHour(new Date().getHours())
   );
-  const [fade, setFade] = useState(true);
-  const currentBgRef = useRef(bgImage);
 
   useEffect(() => {
     const updateBackground = () => {
       const currentHour = new Date().getHours();
       const newBg = getImageForHour(currentHour);
-      if (currentBgRef.current !== newBg) {
-        // Start fade out
-        setFade(false);
-
-        // After fade out duration, change image and fade in
-        setTimeout(() => {
-          setBgImage(newBg);
-          currentBgRef.current = newBg;
-          setFade(true);
-        }, 1000); // matches transition-opacity duration (1000ms)
-      }
+      setBgImage(newBg);
     };
 
-    updateBackground(); // run once on mount
+    updateBackground();
 
     const interval = setInterval(updateBackground, UPDATE_INTERVAL_MS);
     return () => clearInterval(interval);
@@ -46,10 +33,9 @@ const Wallpaper = ({ children }) => {
 
   return (
     <div
-      className='bg-cover bg-center transition-opacity duration-1000 ease-in-out'
+      className='bg-cover bg-center'
       style={{
         backgroundImage: `url(${bgImage})`,
-        opacity: fade ? 1 : 0,
         position: "fixed",
         top: 0,
         left: 0,
