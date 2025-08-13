@@ -12,6 +12,9 @@ const SimpleSearch = () => {
       query
     )}`;
     window.open(googleUrl, "_blank");
+
+    // Clear the search box
+    setQuery("");
   };
 
   return (
@@ -22,7 +25,7 @@ const SimpleSearch = () => {
           placeholder='Search Google...'
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/60 transition-colors duration-300 ease-in-out text-sm sm:text-base text-white'
+          className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/60 transition-colors duration-300 ease-in-out text-sm sm:text-base'
           aria-label='Search query'
         />
         <button
