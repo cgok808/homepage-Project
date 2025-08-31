@@ -59,7 +59,7 @@ const SimpleSearch = () => {
             placeholder='Search (r, yt, am, sp)...'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/60 text-black/60 font-bold tracking-wide transition-colors duration-300 ease-in-out text-sm sm:text-base'
+            className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/70 text-black/70 font-bold tracking-wide transition-colors duration-300 ease-in-out text-sm sm:text-base'
             aria-label='Search query'
           />
 
@@ -72,7 +72,7 @@ const SimpleSearch = () => {
           </button>
         </div>
         {engineHint && (
-          <span className='text-sm font-bold tracking-wide text-black/60 px-1'>
+          <span className='text-sm font-bold tracking-wide text-black/70 px-1'>
             {engineHint}
           </span>
         )}

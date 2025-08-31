@@ -35,7 +35,7 @@ const TimeDisplay = () => {
   )} ${day}, ${year}`; // oh yeah this is it for now
 
   return (
-   <GlassCard className="border-white/40 w-fit max-w-lg text-black/60">
+   <GlassCard className="border-white/40 w-fit max-w-lg text-black/70">
     <div className='text-center lg:text-left'>
       <h1 className='font-bold mb-2 leading-tight border-white/30 border-b-2 pb-2 text-3xl md:text-4xl lg:text-5xl'>
         {greeting}!

@@ -66,7 +66,7 @@ const ToDoList = () => {
 
   return (
     <GlassCard className='z-40 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg min-w-0'>
-      <h2 className='text-xl text-black/60 sm:text-2xl mb-6 font-bold border-white/30 border-b-2 pb-2 tracking-wide'>
+      <h2 className='text-xl text-black/70 sm:text-2xl mb-6 font-bold border-white/30 border-b-2 pb-2 tracking-wide'>
         you remember?
       </h2>
 
@@ -78,7 +78,7 @@ const ToDoList = () => {
           onKeyDown={(e) => e.key === "Enter" && addTask()}
           aria-label='New task'
           placeholder='Add new task...'
-          className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/60 text-black/60 font-bold transition-colors duration-300 ease-in-out text-sm sm:text-base'
+          className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/70 text-black/70 font-bold transition-colors duration-300 ease-in-out text-sm sm:text-base'
         />
         <button
           onClick={addTask}
