@@ -78,7 +78,7 @@ const ToDoList = () => {
           onKeyDown={(e) => e.key === "Enter" && addTask()}
           aria-label='New task'
           placeholder='Add new task...'
-          className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/60 transition-colors duration-300 ease-in-out text-sm sm:text-base'
+          className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/60 text-black/60 font-bold transition-colors duration-300 ease-in-out text-sm sm:text-base'
         />
         <button
           onClick={addTask}
