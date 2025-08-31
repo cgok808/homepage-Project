@@ -5,7 +5,6 @@ const SimpleSearch = () => {
   const [query, setQuery] = useState("");
 
   const engines = {
-    g: (q) => `https://www.google.com/search?q=${q}`,
     r: (q) => `https://www.reddit.com/search/?q=${q}`,
     yt: (q) => `https://www.youtube.com/results?search_query=${q}`,
     am: (q) => `https://www.amazon.com/s?k=${q}`,
@@ -24,7 +23,10 @@ const SimpleSearch = () => {
       window.open(engines[cmd](searchTerm), "_blank");
     } else {
       // Default to Google
-      window.open(engines["g"](encodeURIComponent(query)), "_blank");
+      window.open(
+        `https://www.google.com/search?q=${encodeURIComponent(query)}`,
+        "_blank"
+      );
     }
 
     setQuery("");
@@ -35,7 +37,7 @@ const SimpleSearch = () => {
       <form onSubmit={handleSearch} className='flex gap-3'>
         <input
           type='text'
-          placeholder='Search (r, g, yt, am, sp)'
+          placeholder='Search (r, yt, am, sp)...'
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className='focus:outline-none flex-grow min-w-0 p-2 sm:p-3 rounded-lg border border-white/30 bg-white/10 placeholder-black/60 transition-colors duration-300 ease-in-out text-sm sm:text-base text-white'
