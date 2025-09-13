@@ -13,12 +13,11 @@ import { GlassCard } from "./GlassCard";
 const AppIcon = ({ href, label, Icon }) => (
   <a
     href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:opacity-75 focus:outline-none rounded"
+    rel='noopener noreferrer'
+    className='hover:opacity-75 focus:outline-none rounded'
     aria-label={label}
   >
-    <Icon className="transform scale-90 transition-transform duration-300 hover:scale-110" />
+    <Icon className='transform scale-90 transition-transform duration-300 hover:scale-110' />
   </a>
 );
 
@@ -76,17 +75,17 @@ const appIcons = [
 
 const AppsDisplay = () => {
   return (
-    <div className="flex flex-col gap-8 p-4 items-center lg:items-end transform-gpu will-change-transform">
+    <div className='flex flex-col gap-8 p-4 items-center lg:items-end transform-gpu will-change-transform'>
       {[1, 2].map((groupId) => (
         <GlassCard
           key={groupId}
-          className="p-4 inline-flex max-w-max transform-gpu will-change-transform"
+          className='p-4 inline-flex max-w-max transform-gpu will-change-transform'
         >
-          <ul className="flex items-center gap-4 text-3xl md:text-4xl lg:text-6xl text-white">
+          <ul className='flex items-center gap-4 text-3xl md:text-4xl lg:text-6xl text-white'>
             {appIcons
               .filter((app) => app.group === groupId)
               .map((app) => (
-                <li key={app.id} className="p-2">
+                <li key={app.id} className='p-2'>
                   <AppIcon {...app} />
                 </li>
               ))}
