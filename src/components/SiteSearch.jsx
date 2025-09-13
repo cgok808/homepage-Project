@@ -30,25 +30,21 @@ const SimpleSearch = () => {
     const [cmd, ...rest] = query.trim().split(" ");
     const searchTerm = encodeURIComponent(rest.join(" "));
 
-    if (engines[cmd]) {
-      window.open(engines[cmd].url(searchTerm), "_blank");
-    } else {
-      window.open(
-        `https://www.google.com/search?q=${encodeURIComponent(query)}`,
-        "_blank"
-      );
-    }
-
-    setQuery("");
+    const url = engines[cmd]
+      ? engines[cmd].url(searchTerm)
+      : `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    window.location.href = url;
   };
 
-  // figure out which engine would be used
-  const [cmd] = query.trim().split(" ");
-  const engineHint = engines[cmd]
-    ? `Searching ${engines[cmd].name}...`
-    : query.trim()
-    ? "Searching Google..."
-    : "";
+  const engineHint =
+    query.trim().length > 0
+      ? (() => {
+          const cmd = query.trim().split(" ")[0];
+          return engines[cmd]
+            ? `Searching ${engines[cmd].name}...`
+            : "Searching Google...";
+        })()
+      : "";
 
   return (
     <GlassCard className='z-40 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg min-w-0'>
