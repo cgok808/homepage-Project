@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   PiSpotifyLogoBold,
   PiSteamLogo,
@@ -7,6 +7,9 @@ import {
   PiGoogleDriveLogo,
   PiYoutubeLogo,
   PiMailbox,
+  PiStudent,
+  PiStar,
+  PiArrowsClockwise, // added
 } from "react-icons/pi";
 import { GlassCard } from "./GlassCard";
 
@@ -17,7 +20,7 @@ const AppIcon = ({ href, label, Icon }) => (
     className='hover:opacity-75 focus:outline-none rounded'
     aria-label={label}
   >
-    <Icon className='transform scale-90 transition-transform duration-300 hover:scale-110' />
+    <Icon className='transform transition-transform duration-300 hover:scale-110' />
   </a>
 );
 
@@ -73,25 +76,60 @@ const appIcons = [
   },
 ];
 
+const altGroup2 = [
+  {
+    id: 21,
+    href: "https://lamaku.hawaii.edu/d2l/home",
+    label: "Lamaku",
+    Icon: PiStudent,
+  },
+];
+
 const AppsDisplay = () => {
+  const [altBottom, setAltBottom] = useState(false);
+
   return (
     <div className='flex flex-col gap-8 p-4 items-center lg:items-end transform-gpu will-change-transform'>
-      {[1, 2].map((groupId) => (
-        <GlassCard
-          key={groupId}
-          className='p-4 inline-flex max-w-max transform-gpu will-change-transform'
-        >
-          <ul className='flex items-center gap-4 text-3xl md:text-4xl lg:text-6xl text-white'>
-            {appIcons
-              .filter((app) => app.group === groupId)
-              .map((app) => (
+      {[1, 2].map((groupId) => {
+        const isBottom = groupId === 2;
+        const iconsToShow = isBottom
+          ? altBottom
+            ? altGroup2
+            : appIcons.filter((a) => a.group === 2)
+          : appIcons.filter((a) => a.group === groupId);
+
+        return (
+          <GlassCard
+            key={groupId}
+            className='p-4 inline-flex max-w-max transform-gpu will-change-transform'
+          >
+            <ul className='flex items-center gap-4 text-3xl md:text-4xl lg:text-6xl text-white'>
+              {iconsToShow.map((app) => (
                 <li key={app.id} className='p-2'>
                   <AppIcon {...app} />
                 </li>
               ))}
-          </ul>
-        </GlassCard>
-      ))}
+
+              {/* place the toggle as an icon inline with the rest (only for bottom group) */}
+              {isBottom && (
+                <li className='p-2'>
+                  <button
+                    type='button'
+                    onClick={() => setAltBottom((s) => !s)}
+                    className='hover:opacity-75 focus:outline-none rounded'
+                    aria-pressed={altBottom}
+                    aria-label={
+                      altBottom ? "Show default icons" : "Show alternate icons"
+                    }
+                  >
+                    <PiArrowsClockwise className='transform transition-transform duration-300 hover:scale-110' />
+                  </button>
+                </li>
+              )}
+            </ul>
+          </GlassCard>
+        );
+      })}
     </div>
   );
 };
