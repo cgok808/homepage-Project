@@ -96,7 +96,7 @@ const AppsDisplay = () => {
 
   const triggerAnim = (id) => {
     setAnimatingId(id);
-    window.setTimeout(() => setAnimatingId((s) => (s === id ? null : s)), 600);
+    window.setTimeout(() => setAnimatingId((s) => (s === id ? null : s)), 400);
   };
 
   return (
