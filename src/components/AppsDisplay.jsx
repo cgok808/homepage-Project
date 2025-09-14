@@ -13,14 +13,19 @@ import {
 } from "react-icons/pi";
 import { GlassCard } from "./GlassCard";
 
-const AppIcon = ({ href, label, Icon }) => (
+const AppIcon = ({ href, label, Icon, onPress, animating }) => (
   <a
     href={href}
     rel='noopener noreferrer'
     className='hover:opacity-75 focus:outline-none rounded'
     aria-label={label}
+    onMouseDown={onPress}
   >
-    <Icon className='transform transition-transform duration-300 hover:scale-110' />
+    <Icon
+      className={`transform transition-transform duration-300 hover:scale-110 ${
+        animating ? "animate-pop" : ""
+      }`}
+    />
   </a>
 );
 
@@ -87,6 +92,12 @@ const altGroup2 = [
 
 const AppsDisplay = () => {
   const [altBottom, setAltBottom] = useState(false);
+  const [animatingId, setAnimatingId] = useState(null);
+
+  const triggerAnim = (id) => {
+    setAnimatingId(id);
+    window.setTimeout(() => setAnimatingId((s) => (s === id ? null : s)), 600);
+  };
 
   return (
     <div className='flex flex-col gap-8 p-4 items-center lg:items-end transform-gpu will-change-transform'>
@@ -106,23 +117,33 @@ const AppsDisplay = () => {
             <ul className='flex items-center gap-4 text-3xl md:text-4xl lg:text-6xl text-white'>
               {iconsToShow.map((app) => (
                 <li key={app.id} className='p-2'>
-                  <AppIcon {...app} />
+                  <AppIcon
+                    {...app}
+                    onPress={() => triggerAnim(app.id)}
+                    animating={animatingId === app.id}
+                  />
                 </li>
               ))}
 
-              {/* place the toggle as an icon inline with the rest (only for bottom group) */}
               {isBottom && (
                 <li className='p-2'>
                   <button
                     type='button'
-                    onClick={() => setAltBottom((s) => !s)}
-                    className='hover:opacity-75 focus:outline-none rounded'
+                    onClick={() => {
+                      triggerAnim("toggle"); // animate the toggle icon
+                      setAltBottom((s) => !s); // change icon set
+                    }}
+                    className='hover:opacity-75 focus:outline-none rounded p-1'
                     aria-pressed={altBottom}
                     aria-label={
                       altBottom ? "Show default icons" : "Show alternate icons"
                     }
                   >
-                    <PiArrowsClockwise className='transform transition-transform duration-300 hover:scale-110' />
+                    <PiArrowsClockwise
+                      className={`transform transition-transform duration-300 hover:scale-110 ${
+                        animatingId === "toggle" ? "animate-pop" : ""
+                      }`}
+                    />
                   </button>
                 </li>
               )}
