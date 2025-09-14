@@ -112,7 +112,8 @@ const AppsDisplay = () => {
         return (
           <GlassCard
             key={groupId}
-            className='p-4 inline-flex max-w-max transform-gpu will-change-transform'
+            // added drawer-resize + tailwind transition utilities so width/height/transform animate
+            className='p-4 inline-flex max-w-max drawer-resize transform-gpu will-change-transform'
           >
             <ul className='flex items-center gap-4 text-3xl md:text-4xl lg:text-6xl text-white'>
               {iconsToShow.map((app) => (
@@ -133,7 +134,7 @@ const AppsDisplay = () => {
                       triggerAnim("toggle"); // animate the toggle icon
                       setAltBottom((s) => !s); // change icon set
                     }}
-                    className='hover:opacity-75 focus:outline-none rounded p-1'
+                    className='hover:opacity-75 focus:outline-none rounded'
                     aria-pressed={altBottom}
                     aria-label={
                       altBottom ? "Show default icons" : "Show alternate icons"
