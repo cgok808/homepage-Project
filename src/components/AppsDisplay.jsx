@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   PiSpotifyLogoBold,
   PiSteamLogo,
@@ -8,8 +8,7 @@ import {
   PiYoutubeLogo,
   PiMailbox,
   PiStudent,
-  PiStar,
-  PiArrowsClockwise, // added
+  PiArrowsClockwise,
 } from "react-icons/pi";
 import { GlassCard } from "./GlassCard";
 
@@ -96,7 +95,7 @@ const AppsDisplay = () => {
 
   const triggerAnim = (id) => {
     setAnimatingId(id);
-    window.setTimeout(() => setAnimatingId((s) => (s === id ? null : s)), 400);
+    setTimeout(() => setAnimatingId((s) => (s === id ? null : s)), 400);
   };
 
   return (
@@ -112,8 +111,7 @@ const AppsDisplay = () => {
         return (
           <GlassCard
             key={groupId}
-            // added drawer-resize + tailwind transition utilities so width/height/transform animate
-            className='p-4 inline-flex max-w-max drawer-resize transform-gpu will-change-transform'
+            className='p-4 inline-flex max-w-max transform-gpu will-change-transform'
           >
             <ul className='flex items-center gap-4 text-3xl md:text-4xl lg:text-6xl text-white'>
               {iconsToShow.map((app) => (
@@ -131,8 +129,8 @@ const AppsDisplay = () => {
                   <button
                     type='button'
                     onClick={() => {
-                      triggerAnim("toggle"); // animate the toggle icon
-                      setAltBottom((s) => !s); // change icon set
+                      triggerAnim("toggle");
+                      setAltBottom((s) => !s);
                     }}
                     className='hover:opacity-75 focus:outline-none rounded'
                     aria-pressed={altBottom}

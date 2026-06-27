@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { GlassCard } from "./GlassCard";
 
-const SimpleSearch = () => {
+const SiteSearch = () => {
   const [query, setQuery] = useState("");
 
   const engines = {
@@ -47,7 +47,7 @@ const SimpleSearch = () => {
       : "";
 
   return (
-    <GlassCard className='z-40 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg min-w-0'>
+    <GlassCard className='z-40 w-full max-w-xs sm:max-w-sm md:max-w-md p-4 sm:p-6 backdrop-blur-md shadow-lg min-w-0'>
       <form onSubmit={handleSearch} className='flex flex-col gap-2'>
         <div className='flex gap-3'>
           <input
@@ -77,4 +77,4 @@ const SimpleSearch = () => {
   );
 };
 
-export default SimpleSearch;
+export default SiteSearch;

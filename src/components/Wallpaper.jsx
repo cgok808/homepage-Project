@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import bgMorning from "../assets/pictures/morning.webp";
 import bgDay from "../assets/pictures/day.webp";
 import bgEvening from "../assets/pictures/evening.webp";
@@ -20,9 +20,8 @@ const Wallpaper = ({ children }) => {
 
   useEffect(() => {
     const updateBackground = () => {
-      const currentHour = new Date().getHours();
-      const newBg = getImageForHour(currentHour);
-      setBgImage(newBg);
+      const newBg = getImageForHour(new Date().getHours());
+      setBgImage((prev) => (prev !== newBg ? newBg : prev));
     };
 
     updateBackground();

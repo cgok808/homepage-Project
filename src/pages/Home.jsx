@@ -1,5 +1,3 @@
-// Home.jsx
-import React from "react";
 import Wallpaper from "../components/Wallpaper";
 import TimeDisplay from "../components/TimeDisplay";
 import ToDoList from "../components/ToDoList";

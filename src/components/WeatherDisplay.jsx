@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { GlassCard } from "./GlassCard"; // adjust path if needed
+import { useState, useEffect } from "react";
+import { GlassCard } from "./GlassCard";
 
 const WeatherDisplay = ({ location = "auto:ip" }) => {
   const [weather, setWeather] = useState(null);
